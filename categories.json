@@ -1,0 +1,93 @@
+{
+  "request_types": {
+    "it_related": "The message describes an IT problem or request (hardware, software, network, account, access or security).",
+    "non_it_related": "The message is clearly outside IT support, e.g. HR/policy questions, greetings, small talk.",
+    "unclear": "The message may need help but does not say what is wrong or what is needed, so it cannot be routed."
+  },
+  "categories": {
+    "hardware": {
+      "description": "Physical devices and peripherals failing or misbehaving.",
+      "subcategories": {
+        "startup_failure": "Device will not power on, boot or start.",
+        "display_issue": "Screen or monitor is blank, flickering, distorted or has no signal.",
+        "printer_issue": "Any printer problem: paper jam, offline, not printing, broken.",
+        "peripheral_issue": "Keyboard, mouse, headset, webcam, docking station or other accessory problem.",
+        "physical_damage": "Device is cracked, dropped, water-damaged or otherwise physically broken.",
+        "hardware_other": "Hardware problem that fits none of the above."
+      }
+    },
+    "software": {
+      "description": "Applications and the operating system.",
+      "subcategories": {
+        "application_crash": "An application closes, crashes or will not open.",
+        "software_installation": "Request to install, uninstall or license software.",
+        "software_update": "Request for, or problem with, an update or upgrade.",
+        "performance_issue": "Device or application is slow, freezes or hangs.",
+        "software_error": "An application shows an error message or behaves incorrectly.",
+        "how_to_question": "Question about how to use or configure software.",
+        "software_other": "Software problem that fits none of the above."
+      }
+    },
+    "network": {
+      "description": "Connectivity: Wi-Fi, wired network, internet, VPN.",
+      "subcategories": {
+        "wifi_connection": "Cannot connect to Wi-Fi, Wi-Fi drops, or Wi-Fi is down.",
+        "internet_connectivity": "Connected to the network but there is no internet access.",
+        "vpn_issue": "VPN will not connect or keeps disconnecting.",
+        "network_other": "Network problem that fits none of the above."
+      }
+    },
+    "account": {
+      "description": "The user's identity and credentials.",
+      "subcategories": {
+        "password_reset": "User forgot their password or asks for a reset.",
+        "login_failure": "User knows their credentials but still cannot sign in.",
+        "account_locked": "Account is locked or disabled.",
+        "account_creation": "Request to create or remove a user account.",
+        "account_other": "Account problem that fits none of the above."
+      }
+    },
+    "access": {
+      "description": "Permissions to systems, folders and applications for a user who can already sign in.",
+      "subcategories": {
+        "permission_request": "Request for new access to a folder, system or application.",
+        "permission_error": "User gets an 'access denied' or similar error for something they should reach.",
+        "application_access": "User cannot reach or open an internal system or portal (not a credentials problem).",
+        "access_other": "Access problem that fits none of the above."
+      }
+    },
+    "security": {
+      "description": "Anything that may put company data or systems at risk.",
+      "subcategories": {
+        "phishing_suspicion": "Suspicious email, message or link, especially asking for credentials.",
+        "malware_suspicion": "Virus, ransomware, pop-ups or other signs of malicious software.",
+        "lost_or_stolen_device": "A work device has been lost or stolen.",
+        "data_breach": "Data may have been exposed or accessed without authorisation.",
+        "security_other": "Security concern that fits none of the above."
+      }
+    },
+    "other": {
+      "description": "Used for non-IT and unclear messages.",
+      "subcategories": {
+        "other": "No IT subcategory applies."
+      }
+    }
+  },
+  "affected_devices": {
+    "laptop": "A laptop is named.",
+    "desktop": "A desktop computer or PC is named.",
+    "monitor": "A monitor or external screen is named.",
+    "printer": "A printer is named.",
+    "mobile": "A phone or tablet is named.",
+    "router": "A router, modem or access point is named.",
+    "peripheral": "A keyboard, mouse, headset, webcam or docking station is named.",
+    "other": "A device is named that fits none of the above.",
+    "none": "The issue is not about a device (accounts, access, security of accounts, non-IT messages).",
+    "unknown": "A device is involved but the message does not say which one."
+  },
+  "priorities": {
+    "high": "Security incident (phishing, malware, lost device, breach), or an outage stopping many people or a whole team/office.",
+    "medium": "A problem that stops or seriously disrupts one person's (or a small group's) work.",
+    "low": "Requests, questions, minor problems with a workaround, non-IT and unclear messages."
+  }
+}

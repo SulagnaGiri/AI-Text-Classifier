@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IT Helpdesk Classifier</title>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+  <style>
+    :root {
+      --bg: #f6f7f9; --card: #ffffff; --text: #1d2330; --muted: #667085; --border: #e3e6eb;
+      --accent: #3b5bdb; --accent-text: #ffffff;
+      --high: #c92a2a; --high-bg: #ffe3e3;
+      --medium: #b35c00; --medium-bg: #fff1db;
+      --low: #2b8a3e; --low-bg: #e6f6ea;
+      --warn-bg: #fff8db; --warn: #8a6d00; --code-bg: #f1f3f5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14161b; --card: #1d2027; --text: #e6e8ec; --muted: #9aa1ad; --border: #2e323b;
+        --accent: #748ffc; --accent-text: #0d1020;
+        --high: #ff8787; --high-bg: #3d1d1f;
+        --medium: #ffc078; --medium-bg: #3b2a14;
+        --low: #8ce99a; --low-bg: #1b3322;
+        --warn-bg: #3a3214; --warn: #ffe066; --code-bg: #16181d;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    main { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+    h1 { font-size: 24px; margin: 0 0 4px; }
+    .subtitle { color: var(--muted); margin: 0 0 24px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+    textarea {
+      width: 100%; min-height: 96px; resize: vertical; padding: 12px; border-radius: 8px;
+      border: 1px solid var(--border); background: var(--bg); color: var(--text); font: inherit;
+    }
+    textarea:focus { outline: 2px solid var(--accent); border-color: transparent; }
+    .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 12px; }
+    button.primary {
+      background: var(--accent); color: var(--accent-text); border: 0; border-radius: 8px;
+      padding: 10px 18px; font: inherit; font-weight: 600; cursor: pointer;
+    }
+    button.primary:disabled { opacity: .5; cursor: not-allowed; }
+    .hint { color: var(--muted); font-size: 13px; }
+    .examples { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+    .chip {
+      border: 1px solid var(--border); background: transparent; color: var(--text); border-radius: 999px;
+      padding: 4px 10px; font: inherit; font-size: 13px; cursor: pointer;
+    }
+    .chip:hover { border-color: var(--accent); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+    .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+    .value { font-weight: 600; font-size: 16px; word-break: break-word; }
+    .badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-weight: 600; }
+    .p-high { color: var(--high); background: var(--high-bg); }
+    .p-medium { color: var(--medium); background: var(--medium-bg); }
+    .p-low { color: var(--low); background: var(--low-bg); }
+    .bar { height: 6px; background: var(--border); border-radius: 3px; margin-top: 6px; overflow: hidden; }
+    .bar > div { height: 100%; background: var(--accent); }
+    .warn { background: var(--warn-bg); color: var(--warn); padding: 10px 12px; border-radius: 8px; margin-top: 16px; }
+    .error { background: var(--high-bg); color: var(--high); padding: 10px 12px; border-radius: 8px; }
+    .reason { margin-top: 16px; }
+    pre { background: var(--code-bg); padding: 12px; border-radius: 8px; overflow-x: auto; font-size: 13px; margin: 8px 0 0; }
+    details summary { cursor: pointer; color: var(--muted); margin-top: 16px; }
+    .history-item { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-top: 1px solid var(--border); }
+    .history-item:first-of-type { border-top: 0; }
+    .history-msg { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    h2 { font-size: 16px; margin: 0 0 12px; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    const EXAMPLES = [
+      "My laptop won't turn on.",
+      "The office Wi-Fi is completely down for everyone.",
+      "I received a suspicious email asking for my password.",
+      "Please install Python on my desktop.",
+      "It's not working. Please fix it.",
+      "What is the company's holiday policy?",
+    ];
+
+    function Field({ label, children }) {
+      return (
+        <div>
+          <div className="label">{label}</div>
+          <div className="value">{children}</div>
+        </div>
+      );
+    }
+
+    function Result({ result }) {
+      return (
+        <div className="card">
+          <div className="grid">
+            <Field label="Category">{result.category}</Field>
+            <Field label="Subcategory">{result.subcategory}</Field>
+            <Field label="Priority">
+              <span className={`badge p-${result.priority}`}>{result.priority}</span>
+            </Field>
+            <Field label="Device">{result.affected_device}</Field>
+            <Field label="Request type">{result.request_type}</Field>
+            <Field label="Confidence">
+              {Math.round(result.confidence * 100)}%
+              <div className="bar"><div style={{ width: `${result.confidence * 100}%` }} /></div>
+            </Field>
+          </div>
+
+          {result.needs_clarification && (
+            <div className="warn">⚠️ This message needs more details before it can be routed.</div>
+          )}
+
+          <div className="reason">
+            <div className="label">Reasoning</div>
+            <div>{result.reasoning}</div>
+          </div>
+
+          <details>
+            <summary>JSON response</summary>
+            <pre>{JSON.stringify(result, null, 2)}</pre>
+          </details>
+        </div>
+      );
+    }
+
+    function App() {
+      const [message, setMessage] = useState("");
+      const [result, setResult] = useState(null);
+      const [error, setError] = useState("");
+      const [loading, setLoading] = useState(false);
+      const [seconds, setSeconds] = useState(0);
+      const [history, setHistory] = useState([]);
+
+      // Count seconds while waiting, since the model can be slow.
+      useEffect(() => {
+        if (!loading) return;
+        setSeconds(0);
+        const timer = setInterval(() => setSeconds((s) => s + 1), 1000);
+        return () => clearInterval(timer);
+      }, [loading]);
+
+      async function classify() {
+        setLoading(true);
+        setError("");
+        setResult(null);
+        try {
+          const response = await fetch("/api/classify", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message }),
+          });
+          const data = await response.json();
+          if (!response.ok) throw new Error(data.error || "Request failed");
+          setResult(data);
+          setHistory((items) => [{ message, result: data }, ...items].slice(0, 10));
+        } catch (err) {
+          setError(err.message);
+        } finally {
+          setLoading(false);
+        }
+      }
+
+      return (
+        <main>
+          <h1>IT Helpdesk Classifier</h1>
+          <p className="subtitle">Type a support message. The model returns its category, subcategory, priority and device.</p>
+
+          <div className="card">
+            <textarea
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && (e.metaKey || e.ctrlKey) && !loading) classify();
+              }}
+              placeholder="e.g. My laptop is not connecting to the office Wi-Fi."
+            />
+            <div className="row">
+              <button className="primary" onClick={classify} disabled={loading || !message.trim()}>
+                {loading ? `Classifying… ${seconds}s` : "Classify"}
+              </button>
+              <span className="hint">{loading ? "The model can take a while to respond." : "⌘/Ctrl + Enter"}</span>
+            </div>
+            <div className="examples">
+              {EXAMPLES.map((text) => (
+                <button key={text} className="chip" onClick={() => setMessage(text)} disabled={loading}>
+                  {text}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {error && <div className="card"><div className="error">{error}</div></div>}
+          {result && <Result result={result} />}
+
+          {history.length > 0 && (
+            <div className="card">
+              <h2>Recent</h2>
+              {history.map((item, i) => (
+                <div className="history-item" key={i}>
+                  <span className="history-msg">{item.message}</span>
+                  <span>
+                    {item.result.category} / {item.result.subcategory}{" "}
+                    <span className={`badge p-${item.result.priority}`}>{item.result.priority}</span>
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+        </main>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>
