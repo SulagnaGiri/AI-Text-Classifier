@@ -91,11 +91,17 @@ Domain: **IT helpdesk**. The machine-readable version of this file is [`categori
 
 ## Priority rules
 
-| Priority | When |
-|---|---|
-| `high` | Any suspected security incident, or an outage stopping many people, a team or the whole office |
-| `medium` | Stops or seriously disrupts one person's (or a small group's) work |
-| `low` | Requests, how-to questions, minor problems with a workaround, non-IT and unclear messages |
+Priority is decided by answering these questions in order and stopping at the first "yes":
+
+1. Is it a suspected security incident, or does it stop many people (a team, floor or whole office)? → **high**
+2. Is one person unable to work with no workaround, or does the problem keep interrupting their work? → **medium**
+3. Otherwise → **low**
+
+| Priority | When | Examples |
+|---|---|---|
+| `high` | Security incident (phishing, malware, lost or stolen device, data breach), or many people stopped at once | "nobody on the 3rd floor can log in", "the shared drive is down for the whole team", "I typed my password into a fake login page" |
+| `medium` | One person can't work and has no workaround, or a problem keeps interrupting their work | "my keyboard stopped working", "my account is locked", "Excel closes whenever I open a file", "Teams calls drop every few minutes" |
+| `low` | Requests, how-to questions, small quick fixes, occasional problems, problems with a workaround, non-IT and unclear messages | "the printer is low on toner", "please install 7-Zip", "my headset disconnects now and then but the laptop speakers work" |
 
 Priority is based on impact, not tone: "URGENT!!!" on its own does not raise priority.
 

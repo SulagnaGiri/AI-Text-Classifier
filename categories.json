@@ -86,8 +86,8 @@
     "unknown": "A device is involved but the message does not say which one."
   },
   "priorities": {
-    "high": "Security incident (phishing, malware, lost device, breach), or an outage stopping many people or a whole team/office.",
-    "medium": "A problem that stops or seriously disrupts one person's (or a small group's) work.",
-    "low": "Requests, questions, minor problems with a workaround, non-IT and unclear messages."
+    "high": "Any suspected security incident (phishing, malware, lost or stolen device, data breach), OR a problem stopping many people at once: a whole team, floor or office. Examples: 'nobody on the 3rd floor can log in', 'the shared drive is down for the whole team', 'I typed my password into a fake login page'.",
+    "medium": "One person (or a few) cannot do their work and has no workaround, or a problem keeps happening and constantly interrupts work. Examples: 'my keyboard stopped working', 'my account is locked', 'Excel closes whenever I open a file', 'Teams calls drop every few minutes'.",
+    "low": "Everything else: requests (install software, new access), how-to questions, small quick fixes, occasional problems, and problems the user can work around. Examples: 'the printer is low on toner', 'please install 7-Zip', 'my headset disconnects now and then but the laptop speakers work', 'how do I add a signature in Outlook?'. Non-IT and unclear messages are always low."
   }
 }

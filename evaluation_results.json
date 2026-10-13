@@ -18,7 +18,7 @@
       "priority": "medium",
       "confidence": 0.95,
       "needs_clarification": false,
-      "reasoning": "User reports laptop will not power on, indicating a hardware startup failure."
+      "reasoning": "The user states the laptop won't turn on, which is a hardware startup failure."
     },
     "field_results": {
       "request_type": {
@@ -48,7 +48,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 5.7
+    "seconds": 7.7
   },
   {
     "id": "T02",
@@ -65,11 +65,11 @@
       "request_type": "it_related",
       "category": "network",
       "subcategory": "wifi_connection",
-      "affected_device": "none",
+      "affected_device": "unknown",
       "priority": "high",
-      "confidence": 0.95,
+      "confidence": 0.98,
       "needs_clarification": false,
-      "reasoning": "The message reports a total Wi-Fi outage affecting the entire office, which is a network issue."
+      "reasoning": "The user reports office-wide Wi-Fi outage, indicating a network connectivity issue affecting many users."
     },
     "field_results": {
       "request_type": {
@@ -89,8 +89,8 @@
       },
       "affected_device": {
         "expected": "unknown",
-        "actual": "none",
-        "correct": false
+        "actual": "unknown",
+        "correct": true
       },
       "priority": {
         "expected": "high",
@@ -98,8 +98,8 @@
         "correct": true
       }
     },
-    "all_correct": false,
-    "seconds": 15.3
+    "all_correct": true,
+    "seconds": 6.8
   },
   {
     "id": "T03",
@@ -120,7 +120,7 @@
       "priority": "medium",
       "confidence": 0.9,
       "needs_clarification": false,
-      "reasoning": "User reports laptop connects to Wi-Fi but has no internet access, indicating an internet connectivity issue."
+      "reasoning": "User reports laptop connected to Wi-Fi but no internet access, indicating an internet connectivity issue."
     },
     "field_results": {
       "request_type": {
@@ -150,7 +150,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 3.2
+    "seconds": 7.2
   },
   {
     "id": "T04",
@@ -171,7 +171,7 @@
       "priority": "medium",
       "confidence": 0.95,
       "needs_clarification": false,
-      "reasoning": "Printer reports a paper jam error."
+      "reasoning": "The message describes a printer paper jam error, which is a hardware printer issue preventing the user from printing."
     },
     "field_results": {
       "request_type": {
@@ -201,7 +201,7 @@
       }
     },
     "all_correct": false,
-    "seconds": 2.9
+    "seconds": 12.2
   },
   {
     "id": "T05",
@@ -222,7 +222,7 @@
       "priority": "medium",
       "confidence": 0.95,
       "needs_clarification": false,
-      "reasoning": "User forgot password and cannot log in, indicating a password reset request."
+      "reasoning": "User forgot password and cannot log in, which is an account password reset issue."
     },
     "field_results": {
       "request_type": {
@@ -252,7 +252,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 3.6
+    "seconds": 5.4
   },
   {
     "id": "T06",
@@ -271,9 +271,9 @@
       "subcategory": "software_installation",
       "affected_device": "desktop",
       "priority": "low",
-      "confidence": 0.9,
+      "confidence": 0.98,
       "needs_clarification": false,
-      "reasoning": "User requests installation of Python on their desktop."
+      "reasoning": "User requests installation of Python on their desktop, which is a software installation request."
     },
     "field_results": {
       "request_type": {
@@ -303,7 +303,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 7.5
+    "seconds": 3.0
   },
   {
     "id": "T07",
@@ -320,11 +320,11 @@
       "request_type": "it_related",
       "category": "software",
       "subcategory": "application_crash",
-      "affected_device": "unknown",
+      "affected_device": "none",
       "priority": "medium",
-      "confidence": 0.9,
+      "confidence": 0.95,
       "needs_clarification": false,
-      "reasoning": "The user reports that their email application crashes upon opening, indicating a software application crash."
+      "reasoning": "The user reports that their email application crashes on launch, indicating a software application crash."
     },
     "field_results": {
       "request_type": {
@@ -344,8 +344,8 @@
       },
       "affected_device": {
         "expected": "unknown",
-        "actual": "unknown",
-        "correct": true
+        "actual": "none",
+        "correct": false
       },
       "priority": {
         "expected": "medium",
@@ -353,8 +353,8 @@
         "correct": true
       }
     },
-    "all_correct": true,
-    "seconds": 4.5
+    "all_correct": false,
+    "seconds": 13.6
   },
   {
     "id": "T08",
@@ -405,7 +405,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 6.0
+    "seconds": 5.5
   },
   {
     "id": "T09",
@@ -424,9 +424,9 @@
       "subcategory": "display_issue",
       "affected_device": "monitor",
       "priority": "medium",
-      "confidence": 0.95,
+      "confidence": 0.9,
       "needs_clarification": false,
-      "reasoning": "The user reports a flickering monitor, which is a display issue affecting a single user."
+      "reasoning": "Monitor flickering continuously is a display issue affecting the user's ability to work."
     },
     "field_results": {
       "request_type": {
@@ -456,7 +456,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 4.1
+    "seconds": 5.4
   },
   {
     "id": "T10",
@@ -477,7 +477,7 @@
       "priority": "high",
       "confidence": 0.95,
       "needs_clarification": false,
-      "reasoning": "The user reports a suspicious email requesting password verification, which is a phishing suspicion."
+      "reasoning": "User reports a suspicious email requesting password verification, indicating a phishing attempt."
     },
     "field_results": {
       "request_type": {
@@ -507,7 +507,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 2.4
+    "seconds": 3.3
   },
   {
     "id": "T11",
@@ -528,7 +528,7 @@
       "priority": "high",
       "confidence": 0.95,
       "needs_clarification": false,
-      "reasoning": "The message reports a Wi-Fi outage affecting the whole office, indicating a network connectivity issue."
+      "reasoning": "The message reports a Wi-Fi outage affecting the entire office, indicating a network connectivity issue."
     },
     "field_results": {
       "request_type": {
@@ -558,7 +558,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 7.2
+    "seconds": 4.1
   },
   {
     "id": "T12",
@@ -579,7 +579,7 @@
       "priority": "high",
       "confidence": 0.95,
       "needs_clarification": false,
-      "reasoning": "User reports losing their work laptop, which is a lost device security incident."
+      "reasoning": "User reports lost work laptop, which is a lost-or-stolen-device security incident."
     },
     "field_results": {
       "request_type": {
@@ -609,7 +609,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 3.6
+    "seconds": 3.9
   },
   {
     "id": "T13",
@@ -630,7 +630,7 @@
       "priority": "low",
       "confidence": 0.95,
       "needs_clarification": false,
-      "reasoning": "The user asks about holiday policy, which is an HR/policy question unrelated to IT."
+      "reasoning": "The user asks about holiday policy, which is an HR/non‑IT question."
     },
     "field_results": {
       "request_type": {
@@ -660,7 +660,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 3.2
+    "seconds": 3.9
   },
   {
     "id": "T14",
@@ -681,7 +681,7 @@
       "priority": "low",
       "confidence": 0.95,
       "needs_clarification": false,
-      "reasoning": "The message is a greeting and small talk, not an IT request."
+      "reasoning": "The message is a greeting, not an IT request."
     },
     "field_results": {
       "request_type": {
@@ -711,7 +711,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 2.4
+    "seconds": 3.1
   },
   {
     "id": "T15",
@@ -732,7 +732,7 @@
       "priority": "medium",
       "confidence": 0.95,
       "needs_clarification": false,
-      "reasoning": "User reports VPN disconnecting frequently, indicating a network VPN issue."
+      "reasoning": "User reports VPN disconnecting frequently, which is a network VPN issue affecting one user's work."
     },
     "field_results": {
       "request_type": {
@@ -762,7 +762,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 6.2
+    "seconds": 3.8
   },
   {
     "id": "T16",
@@ -783,7 +783,7 @@
       "priority": "medium",
       "confidence": 0.9,
       "needs_clarification": false,
-      "reasoning": "User can log in but receives an access denied error when opening an application, indicating a permission issue."
+      "reasoning": "User can log in but receives an access denied error when opening an application, indicating a permission error."
     },
     "field_results": {
       "request_type": {
@@ -813,7 +813,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 5.2
+    "seconds": 4.1
   },
   {
     "id": "T17",
@@ -834,7 +834,7 @@
       "priority": "medium",
       "confidence": 0.9,
       "needs_clarification": false,
-      "reasoning": "User reports laptop slow and occasional screen freeze, indicating a performance issue."
+      "reasoning": "User reports laptop slowness and occasional screen freezes, matching a performance issue affecting device responsiveness."
     },
     "field_results": {
       "request_type": {
@@ -864,7 +864,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 16.9
+    "seconds": 8.1
   },
   {
     "id": "T18",
@@ -883,9 +883,9 @@
       "subcategory": "other",
       "affected_device": "unknown",
       "priority": "low",
-      "confidence": 0.9,
+      "confidence": 0.5,
       "needs_clarification": true,
-      "reasoning": "The user states they need help urgently but does not specify what is wrong, making the request unclear."
+      "reasoning": "The user states they need help urgently but does not specify what the issue is, making it unclear."
     },
     "field_results": {
       "request_type": {
@@ -915,7 +915,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 6.6
+    "seconds": 9.6
   },
   {
     "id": "T19",
@@ -966,7 +966,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 4.8
+    "seconds": 3.8
   },
   {
     "id": "T20",
@@ -985,9 +985,9 @@
       "subcategory": "application_access",
       "affected_device": "none",
       "priority": "medium",
-      "confidence": 0.85,
+      "confidence": 0.9,
       "needs_clarification": false,
-      "reasoning": "User cannot reach the internal company portal despite having internet, indicating an access issue to the portal."
+      "reasoning": "User cannot reach the internal company portal while internet works, indicating an access issue."
     },
     "field_results": {
       "request_type": {
@@ -1017,7 +1017,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 14.0
+    "seconds": 8.5
   },
   {
     "id": "T21",
@@ -1036,9 +1036,9 @@
       "subcategory": "printer_issue",
       "affected_device": "printer",
       "priority": "high",
-      "confidence": 0.9,
+      "confidence": 0.95,
       "needs_clarification": false,
-      "reasoning": "Printer issue affecting the whole office."
+      "reasoning": "Printer issue causing whole office to stop work indicates high impact."
     },
     "field_results": {
       "request_type": {
@@ -1068,7 +1068,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 3.9
+    "seconds": 4.6
   },
   {
     "id": "T22",
@@ -1086,10 +1086,10 @@
       "category": "network",
       "subcategory": "wifi_connection",
       "affected_device": "unknown",
-      "priority": "medium",
+      "priority": "low",
       "confidence": 0.9,
       "needs_clarification": false,
-      "reasoning": "User reports intermittent Wi-Fi disconnections, indicating a wifi_connection issue."
+      "reasoning": "User reports intermittent Wi-Fi disconnections with a workaround via mobile hotspot, indicating a network wifi_connection issue."
     },
     "field_results": {
       "request_type": {
@@ -1114,12 +1114,12 @@
       },
       "priority": {
         "expected": "low",
-        "actual": "medium",
-        "correct": false
+        "actual": "low",
+        "correct": true
       }
     },
-    "all_correct": false,
-    "seconds": 9.1
+    "all_correct": true,
+    "seconds": 6.9
   },
   {
     "id": "T23",
@@ -1138,9 +1138,9 @@
       "subcategory": "software_installation",
       "affected_device": "laptop",
       "priority": "low",
-      "confidence": 0.9,
+      "confidence": 0.95,
       "needs_clarification": false,
-      "reasoning": "User requests to install Zoom on their laptop, which is a software installation request."
+      "reasoning": "User requests installation of Zoom on laptop, which is a software installation request."
     },
     "field_results": {
       "request_type": {
@@ -1170,7 +1170,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 5.9
+    "seconds": 4.4
   },
   {
     "id": "T24",
@@ -1221,7 +1221,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 8.9
+    "seconds": 3.7
   },
   {
     "id": "T25",
@@ -1240,9 +1240,9 @@
       "subcategory": "other",
       "affected_device": "unknown",
       "priority": "low",
-      "confidence": 0.95,
+      "confidence": 0.9,
       "needs_clarification": true,
-      "reasoning": "The message consists of random characters and does not describe a clear IT issue."
+      "reasoning": "The message is gibberish and does not describe a clear IT issue, so it is classified as unclear."
     },
     "field_results": {
       "request_type": {
@@ -1272,7 +1272,7 @@
       }
     },
     "all_correct": true,
-    "seconds": 3.4
+    "seconds": 5.3
   },
   {
     "id": "T26",
@@ -1323,7 +1323,7 @@
       }
     },
     "all_correct": false,
-    "seconds": 7.1
+    "seconds": 6.6
   },
   {
     "id": "T27",
@@ -1344,7 +1344,7 @@
       "priority": "high",
       "confidence": 0.95,
       "needs_clarification": false,
-      "reasoning": "The pop-up indicating file encryption suggests a malware/ransomware security incident, which takes precedence over the mouse problem."
+      "reasoning": "The ransomware pop-up indicates a malware suspicion, a security incident, which outweighs the peripheral mouse issue."
     },
     "field_results": {
       "request_type": {
@@ -1374,6 +1374,6 @@
       }
     },
     "all_correct": false,
-    "seconds": 7.9
+    "seconds": 7.8
   }
 ]
