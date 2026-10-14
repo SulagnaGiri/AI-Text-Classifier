@@ -130,4 +130,7 @@ See [`EVALUATION.md`](EVALUATION.md) for the latest run, including per-field acc
 
 ## Demo
 
-<!-- Add screenshots or a demo video link here. -->
+
+
+https://github.com/user-attachments/assets/75476e5d-ac11-414c-8430-08cbfc5f7eb7
+
