@@ -104,6 +104,7 @@ def write_report(results: list) -> None:
                      f"{r['actual'].get('confidence', '')} |")
 
     lines += ["", "Full JSON output for every case is in `evaluation_results.json`.", ""]
+    
     REPORT_FILE.write_text("\n".join(lines), encoding="utf-8")
 
 
